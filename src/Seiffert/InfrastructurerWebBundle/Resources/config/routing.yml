@@ -1,0 +1,11 @@
+seiffert_infrastructurer_web_homepage:
+    pattern:  /
+    defaults: { _controller: SeiffertInfrastructurerWebBundle:Default:index }
+
+seiffert_infrastructurer_web_get_started:
+    pattern:  /
+    defaults: { _controller: SeiffertInfrastructurerWebBundle:Default:index }
+
+seiffert_infrastructurer_web_contact:
+    pattern:  /
+    defaults: { _controller: SeiffertInfrastructurerWebBundle:Default:index }

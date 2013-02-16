@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+        body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+        </style>
+        {% stylesheets 'bundles/seiffertinfrastructurerweb/css/*' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="#">Dev<strong>Infrastructurer</strong></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+
+                            {% for route in ['seiffert_infrastructurer_web_homepage',
+                                             'seiffert_infrastructurer_web_get_started',
+                                             'seiffert_infrastructurer_web_contact'] %}
+                                <li{% if app.request.get('_route') == route %} class="active"{% endif %}>
+                                    <a href="{{ path(route) }}">{{ "menu_item_#{route}"|trans }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        {% block body %}
+
+        {% endblock %}
+
+        {% javascripts
+                '@SeiffertInfrastructurerWebBundle/Resources/public/js/*'
+                '@SeiffertInfrastructurerWebBundle/Resources/public/js/vendor/*' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        <script>
+            var _gaq=[['_setAccount','UA-38555284-1'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+
+        <a href="https://github.com/seiffert">
+            <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 1050"
+                 src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub" />
+        </a>
+    </body>
+</html>
